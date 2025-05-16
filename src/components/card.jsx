@@ -5,7 +5,7 @@ export const Card = ({ movie }) => {
 
   return (
     <Link to={`/movies/${movie.id}`}>
-      <div className="card">
+      <div className="">
         <p>{movie.title}</p>
       </div>
     </Link>

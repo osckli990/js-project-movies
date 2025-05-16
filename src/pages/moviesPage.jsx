@@ -2,7 +2,7 @@
 // It will show the movies that we fetch from the API
 
 import { useEffect, useState } from "react";
-import Card from "../components/Card";
+import Card from "../components/Card.jsx";
 
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
