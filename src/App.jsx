@@ -1,5 +1,17 @@
+import { BrowserRouter, Routes, Route } from "react-router";
+
+import { notFound } from "./pages/notFound";
+
 export const App = () => {
   return (
-    <h1>Movies</h1>
-  )
-}
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<moviePage />} />
+          <Route path="/movies/:movieId" exact element={<aboutPage />} />
+          <Route path="*" element={<notFound />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+};
