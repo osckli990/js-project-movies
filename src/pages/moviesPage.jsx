@@ -18,7 +18,7 @@ export const MoviePage = () => {
       .then((response) => response.json())
       .then((data) => setMovies(data.results)) // save the movies to the state variable
       .catch((error) => console.error("Error fetching movies:", error));
-  });
+  }, [setMovies]);
 
   return (
     <div className="grid grid-cols-1">
