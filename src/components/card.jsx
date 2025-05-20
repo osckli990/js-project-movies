@@ -1,15 +1,34 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 export const Card = ({ movie }) => {
-  const imgSize = "w780";
-  const imgPoster = `https://image.tmdb.org/t/p/${imgSize}${movie.poster_path}`;
+  const [imgSize, setImgSize] = useState("w780");
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 1280) setImgSize("w780");
+      else if (width >= 768) setImgSize("w500");
+      else setImgSize("w342");
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  let imgPoster = `https://image.tmdb.org/t/p/${imgSize}${movie.poster_path}`;
 
   return (
     <Link to={`/movies/${movie.id}`}>
-      <figure className="w-full">
-        <img className="object-contain" src={imgPoster} />
-        <p className="">{movie.title}</p>
-        <p className="">{movie.release_date}</p>
+      <figure
+        className="w-full h-[580px] sm:h-[780px] bg-cover bg-center overflow-hidden shadow-lg flex justify-start items-end"
+        style={{ backgroundImage: `url(${imgPoster})` }}
+      >
+        <div className=" bg-black bg-opacity-90 text-white p-2 w-full">
+          <p className="text-[24px]">{movie.title}</p>
+          <p className="">{movie.release_date}</p>
+        </div>
       </figure>
     </Link>
   );

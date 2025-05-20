@@ -21,7 +21,7 @@ export const MoviePage = () => {
   }, [setMovies]);
 
   return (
-    <div className="grid grid-cols-1">
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
       {movies.length &&
         movies.map((movie) => <Card key={movie.id} movie={movie} />)}
     </div>
