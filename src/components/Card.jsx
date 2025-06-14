@@ -24,7 +24,7 @@ export const Card = ({ movie }) => {
         className="w-full h-[580px] sm:h-[780px] bg-cover bg-center overflow-hidden shadow-lg flex justify-start items-end"
         style={{ backgroundImage: `url(${imgPoster})` }}
       >
-        <div className=" bg-black bg-opacity-90 text-white p-2 w-full">
+        <div className=" bg-black bg-opacity-60 text-white p-2 w-full">
           <p className="text-[24px]">{movie.title}</p>
           <p className="">{movie.release_date}</p>
         </div>
