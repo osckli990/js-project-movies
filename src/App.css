@@ -17,3 +17,8 @@ a {
   text-decoration: none;
   color: black;
 }
+
+:focus-visible {
+  outline: solid yellow;
+  border-radius: 1px;
+}
